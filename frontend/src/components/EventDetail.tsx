@@ -449,7 +449,7 @@ const EventDetail: React.FC = () => {
           ) : (
             <GuestList>
               {event.guests.map((guest) => (
-                <li key={guest.id}>
+                <li key={guest._id}>
                   {guest.fullName} ({guest.age} years old)
                 </li>
               ))}

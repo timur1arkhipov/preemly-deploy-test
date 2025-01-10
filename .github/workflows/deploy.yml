@@ -33,13 +33,6 @@ jobs:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
-      - name: Start frontend in dev mode
-        run: npm run dev &
-        working-directory: ./frontend
-
-      - name: Wait for frontend to be ready
-        run: sleep 10
-
       - name: Start backend
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
@@ -53,10 +46,13 @@ jobs:
         run: npm run start &
         working-directory: ./backend
 
+      - name: Build frontend
+        run: npm run build:prod
+        working-directory: ./frontend
+
       - name: Deploy frontend to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: '--prod --yes'
           working-directory: ./frontend
-      
