@@ -40,7 +40,6 @@ jobs:
       - name: Wait for frontend to be ready
         run: sleep 10
 
-
       - name: Start backend
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
@@ -53,3 +52,10 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: npm run start &
         working-directory: ./backend
+
+      - name: Deploy frontend to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          working-directory: ./frontend
