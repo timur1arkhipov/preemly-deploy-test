@@ -34,7 +34,7 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
       - name: Start frontend in dev mode
-        run: npm run dev
+        run: npm run build:prod
         working-directory: ./frontend
 
       - name: Start backend
