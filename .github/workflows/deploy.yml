@@ -40,6 +40,16 @@ jobs:
       - name: Wait for frontend to be ready
         run: sleep 10
 
+
       - name: Start backend
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          PORT: ${{ secrets.PORT }}
+          MAILGUN_KEY: ${{ secrets.MAILGUN_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
+          AUTH0_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: npm run start
         working-directory: ./backend
