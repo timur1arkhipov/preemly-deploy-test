@@ -24,7 +24,9 @@ jobs:
           npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          cd frontend
+          npm run build
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
 
