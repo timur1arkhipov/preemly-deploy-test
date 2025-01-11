@@ -162,7 +162,7 @@ const UserProfile: React.FC = () => {
             <FooterSection>
               <Option
                 onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
+                  logout({ logoutParams: { returnTo: process.env.BASE_URL } })
                 }
               >
                 Sign Out

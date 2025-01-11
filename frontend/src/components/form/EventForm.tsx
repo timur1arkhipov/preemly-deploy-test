@@ -107,7 +107,7 @@ const TicketInSpaceContainer = styled.div`
 `;
 
 const EventForm: React.FC = () => {
-  const __dirname = window.location.origin;
+  const __dirname = process.env.BASE_URL;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [poster, setPoster] = useState<string | null>(null);

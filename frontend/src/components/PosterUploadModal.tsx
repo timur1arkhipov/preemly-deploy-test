@@ -3,7 +3,7 @@ import styled from "styled-components";
 import React from "react";
 import useAxiosWithAuth from "./auth/useAxiosWithAuth";
 
-const __dirname = window.location.origin;
+const __dirname = process.env.BASE_URL;
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
