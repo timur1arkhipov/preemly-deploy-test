@@ -7,7 +7,7 @@ const useAxiosWithAuth = () => {
   const axiosInstance = axios.create({
     baseURL: `https://backend-opal-sigma.vercel.app/api`,
   });
-  const audience = "https://dev-hiwm6xv136r7yzch.us.auth0.com/api/v2";
+  const audience = "https://dev-hiwm6xv136r7yzch.us.auth0.com/api/v2/";
   const scopes = "read:events write:events offline_access";
   // Add a request interceptor to include the token
   axiosInstance.interceptors.request.use(async (config) => {

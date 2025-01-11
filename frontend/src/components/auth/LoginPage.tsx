@@ -119,7 +119,7 @@ const LoginPage: React.FC = () => {
         onClick={() =>
           loginWithRedirect({
             authorizationParams: {
-              audience: "https://dev-hiwm6xv136r7yzch.us.auth0.com/api/v2",
+              audience: "https://dev-hiwm6xv136r7yzch.us.auth0.com/api/v2/",
               scope: "read:events write:events",
               prompt: "consent", // Force showing the consent screen
             },
