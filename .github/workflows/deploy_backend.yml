@@ -26,15 +26,15 @@ jobs:
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
-            vercel-token: ${{ secrets.VERCEL_TOKEN }}
-            vercel-args: '--prod --yes'
-            working-directory: ./backend
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod --yes'
+          working-directory: ./backend
         env:
-            MONGO_URI: ${{ secrets.MONGO_URI }}
-            PORT: ${{ secrets.PORT }}
-            MAILGUN_KEY: ${{ secrets.MAILGUN_KEY }}
-            API_KEY: ${{ secrets.API_KEY }}
-            AUTH0_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE }}
-            CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-            CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-            CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          PORT: ${{ secrets.PORT }}
+          MAILGUN_KEY: ${{ secrets.MAILGUN_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
+          AUTH0_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
