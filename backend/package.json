@@ -5,8 +5,7 @@
   "author": "b.myrinets & t.arhipov",
   "main": "index.js",
   "scripts": {
-    "start:test": "NODE_ENV=development nodemon src/index.js",
-    "start:dev": "NODE_ENV=development node src/index.js",
+    "start:dev": "NODE_ENV=development nodemon src/index.js",
     "start:prod": "NODE_ENV=production node src/index.js",
     "start": "node src/index.js"
   },

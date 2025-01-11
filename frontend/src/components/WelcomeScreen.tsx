@@ -75,7 +75,7 @@ const WelcomeScreen: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (message) {a
+    if (message) {
       try {
         const parsedMessage = message;
         if (
