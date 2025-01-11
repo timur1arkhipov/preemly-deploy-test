@@ -45,7 +45,7 @@ app.use(express.json()); // Parse JSON data in the request body
 // Connect to database
 app.listen(PORT, () => {
   connectDB();
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on PORT: ${PORT}`);
 });
 
 app.post("/api/mail", async (req, res) => {
