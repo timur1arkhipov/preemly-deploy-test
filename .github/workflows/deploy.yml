@@ -49,12 +49,12 @@ jobs:
           echo '{
             "version": 2,
             "builds": [
-              { "src": "index.js", "use": "@vercel/node" }
+              { "src": "backend/index.js", "use": "@vercel/node" }
             ],
             "routes": [
-              { "src": "/(.*)", "dest": "index.js" }
+              { "src": "/(.*)", "dest": "backend/index.js" }
             ]
-          }' > ./backend/vercel.json
+          }' > vercel.json
 
       - name: Deploy backend to Vercel
         uses: amondnet/vercel-action@v20
