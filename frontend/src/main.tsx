@@ -16,7 +16,7 @@ root.render(
       clientId={clientId}
       authorizationParams={{
         redirect_uri: window.location.origin,
-        audience: "https://api.preemly.eu", // Your API
+        audience: "https://dev-hiwm6xv136r7yzch.us.auth0.com/api/v2/", // Your API
         scope: "read:events write:events offline_access",
       }}
     >
