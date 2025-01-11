@@ -33,24 +33,13 @@ jobs:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
 
-      - name: Build frontend
-        run: npm run build
-        working-directory: ./frontend
-
-      - name: Build backend
-        run: npm run build:prod
-        working-directory: ./
-        
       - name: Deploy frontend to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod --yes'
           working-directory: ./frontend
+          vercel-args: '--prod'
 
-      - name: Deploy backend to Vercel
-        uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod --yes'
-          working-directory: ./backend
+      - name: Start backend
+        run: npm run start
+        working-directory: ./backend
