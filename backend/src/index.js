@@ -6,7 +6,7 @@ import Event from "./models/event.model.js";
 import Guest from "./models/guest.model.js";
 import verifyUser from "./utils/verify-user.js";
 import bodyParser from "body-parser";
-import sendEmail from "./services/mailgun.service.js";
+// import sendEmail from "./services/mailgun.service.js";
 import { uploadImage } from "./config/cloudinary.js";
 import { v2 as cloudinary } from "cloudinary";
 import extractPublicId from "./utils/helpers.js";
@@ -58,7 +58,7 @@ app.post("/api/mail", async (req, res) => {
   }
 
   try {
-    await sendEmail(recipient, subject, htmlContent);
+    // await sendEmail(recipient, subject, htmlContent);
     res.status(204).send();
   } catch (error) {
     console.error("Error in Create Event:", error.message);
