@@ -13,7 +13,13 @@ import extractPublicId from "./utils/helpers.js";
 import axios from 'axios';
 
 const app = express();
-app.use(cors());
+const allowedOrigins = ['https://frontend-pi-bay-46.vercel.app'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+
 dotenv.config();
 const PORT = process.env.PORT || 3002;
 app.use(bodyParser.json({ limit: "10mb" })); // Increase JSON payload limit

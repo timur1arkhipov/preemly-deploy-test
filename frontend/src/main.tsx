@@ -15,7 +15,7 @@ root.render(
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: process.env.BASE_URL,
+        redirect_uri: window.location.origin,
         audience: "https://api.preemly.eu", // Your API
         scope: "read:events write:events offline_access",
       }}

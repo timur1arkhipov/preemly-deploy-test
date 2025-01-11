@@ -29,7 +29,7 @@ const LogoutButton: React.FC = () => {
   return (
     <StyledButton
       onClick={() =>
-        logout({ logoutParams: { returnTo: process.env.BASE_URL } })
+        logout({ logoutParams: { returnTo: window.location.origin } })
       }
     >
       Log Out
