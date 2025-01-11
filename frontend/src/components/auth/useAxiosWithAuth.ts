@@ -5,7 +5,7 @@ const useAxiosWithAuth = () => {
   const { getAccessTokenSilently } = useAuth0();
   //const __dirname = process.env.BASE_URL;
   const axiosInstance = axios.create({
-    baseURL: `https://preemly-deploy-test.vercel.app/api`, // Your backend's base URL
+    baseURL: `https://backend-opal-sigma.vercel.app/api`, // Your backend's base URL
   });
   const audience = "https://api.preemly.eu";
   const scopes = "read:events write:events offline_access";
