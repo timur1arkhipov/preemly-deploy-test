@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const __dirname = window.location.origin;
 const api = axios.create({
-  baseURL: "https://backend-opal-sigma.vercel.app"
+  baseURL: __dirname, // Backend URL
 });
 
 export default api;

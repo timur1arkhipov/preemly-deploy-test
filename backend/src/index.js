@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import Event from "./models/event.model.js";
 import Guest from "./models/guest.model.js";
+import path from "path";
 import verifyUser from "./utils/verify-user.js";
 import bodyParser from "body-parser";
 // import sendEmail from "./services/mailgun.service.js";
@@ -12,17 +13,12 @@ import { v2 as cloudinary } from "cloudinary";
 import extractPublicId from "./utils/helpers.js";
 import axios from 'axios';
 
+const __dirname = path.resolve();
 const app = express();
-const allowedOrigins = ['https://frontend-pi-bay-46.vercel.app'];
-
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
-
+app.use(cors());
 dotenv.config();
 const PORT = process.env.PORT || 3002;
-app.use(bodyParser.json({ limit: "10mb" })); // Increase JSON payload li mit
+app.use(bodyParser.json({ limit: "10mb" })); // Increase JSON payload limit
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" })); // For form data
 
 cloudinary.config({
@@ -51,7 +47,7 @@ app.use(express.json()); // Parse JSON data in the request body
 // Connect to database
 app.listen(PORT, () => {
   connectDB();
-  console.log(`Server is running on PORT:${PORT}`);
+  console.log(`Server is running on PORT: ${PORT}`);
 });
 
 app.post("/api/mail", async (req, res) => {
@@ -345,3 +341,10 @@ app.put("/api/guests/:id/attendance", async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 });
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "/frontend/dist")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+//   });
+// }

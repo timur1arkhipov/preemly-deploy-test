@@ -3,9 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const useAxiosWithAuth = () => {
   const { getAccessTokenSilently } = useAuth0();
-  //const __dirname = process.env.BASE_URL;
+  //const __dirname = window.location.origin;
   const axiosInstance = axios.create({
-    baseURL: `https://backend-opal-sigma.vercel.app/api`, // Your backend's base URL
+    baseURL: `https://backend-opal-sigma.vercel.app/api`,
   });
   const audience = "https://api.preemly.eu";
   const scopes = "read:events write:events offline_access";
