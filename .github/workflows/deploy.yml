@@ -44,6 +44,18 @@ jobs:
           vercel-args: '--prod --yes'
           working-directory: ./frontend
 
+      - name: Prepare backend for deployment
+        run: |
+          echo '{
+            "version": 2,
+            "builds": [
+              { "src": "index.js", "use": "@vercel/node" }
+            ],
+            "routes": [
+              { "src": "/(.*)", "dest": "index.js" }
+            ]
+          }' > ./backend/vercel.json
+
       - name: Deploy backend to Vercel
         uses: amondnet/vercel-action@v20
         with:
