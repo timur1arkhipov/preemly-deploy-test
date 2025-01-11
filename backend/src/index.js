@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import Event from "./models/event.model.js";
 import Guest from "./models/guest.model.js";
-import path from "path";
 import verifyUser from "./utils/verify-user.js";
 import bodyParser from "body-parser";
 import sendEmail from "./services/mailgun.service.js";
@@ -13,7 +12,6 @@ import { v2 as cloudinary } from "cloudinary";
 import extractPublicId from "./utils/helpers.js";
 import axios from 'axios';
 
-const __dirname = path.resolve();
 const app = express();
 app.use(cors());
 dotenv.config();
@@ -341,10 +339,3 @@ app.put("/api/guests/:id/attendance", async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-}
